@@ -1,4 +1,4 @@
-Below is a GitHub-friendly **README.md** that explains your program in a clear and professional way.
+Below is a GitHub-friendly **README.md** that explains your program in a clear and professional way....
 
 # Best-First Search (Greedy Best-First Search) in Python
 
