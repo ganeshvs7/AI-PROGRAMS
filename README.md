@@ -379,3 +379,5 @@ A → C → F
 This project demonstrates the implementation of the **Greedy Best-First Search** algorithm using Python. The algorithm uses heuristic values to prioritize nodes that appear closest to the goal, making it an efficient choice for many AI search problems. However, because it relies solely on heuristic estimates, it does not always produce the shortest or optimal path.
 
 You can save this as **`README.md`** in your GitHub repository. GitHub will automatically render the headings, tables, code blocks, and diagrams in a clean, professional format.
+
+dfghdfhh 
