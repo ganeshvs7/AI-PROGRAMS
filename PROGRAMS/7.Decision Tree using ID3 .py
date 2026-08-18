@@ -1,3 +1,6 @@
+print("GANESH V S  24BECS157 ")
+print("ID3 Decision Tree")
+
 import math
 
 def entropy(data):
@@ -66,17 +69,21 @@ def id3(data, features):
         if i != best_feat_idx
     ]
 
-    feature_values = set(
-        row[best_feat_idx] for row in data
-    )
+    feature_values = set(row[best_feat_idx] for row in data)
+
+    # Majority label of current node (used if a split produces empty subset)
+    parent_majority = max(set(labels), key=labels.count)
 
     for val in feature_values:
         subset = split_data(data, best_feat_idx, val)
 
-        tree[best_feature][val] = id3(
-            subset,
-            remaining_features
-        )
+        if not subset:
+            tree[best_feature][val] = parent_majority
+        else:
+            tree[best_feature][val] = id3(
+                subset,
+                remaining_features
+            )
 
     return tree
 

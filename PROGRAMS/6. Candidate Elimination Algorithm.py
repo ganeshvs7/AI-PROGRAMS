@@ -1,3 +1,6 @@
+print("GANESH V S  24BECS157 ")
+print("Candidate Elimination Algorithm")
+
 def candidate_elimination(data):
     num_attributes = len(data[0]) - 1
 

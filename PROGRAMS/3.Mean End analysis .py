@@ -1,6 +1,5 @@
 print("GANESH V S  24BECS157 ")
 print("Mean End Analysis")
-#implementation of BFS and DFS
 
 class MeansEndAnalysis:
 
@@ -32,8 +31,8 @@ class MeansEndAnalysis:
         if preconditions_path is None:
             return None
 
-        # Apply operator
-        new_state = op['effect']
+        # Apply operator (merge effects into current state)
+        new_state = {**current, **op['effect']}
 
         remaining_path = self.solve(new_state, goal)
 

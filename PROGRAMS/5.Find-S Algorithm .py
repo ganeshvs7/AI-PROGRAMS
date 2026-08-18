@@ -1,3 +1,7 @@
+
+print("GANESH V S  24BECS157 ")
+print("Find-S Algorithm")
+
 def find_s(training_data):
     # Initialize the specific hypothesis with the first positive instance
     hypothesis = None
