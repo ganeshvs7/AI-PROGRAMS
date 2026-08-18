@@ -3,9 +3,10 @@ print("Best-First Search Algorithm Implementation")
 from queue import PriorityQueue
 
 
-def best_first_Search(graph, start, target, heuristics):
+def best_first_search(graph, start, target, heuristics):
     visited = set()
     pq = PriorityQueue()
+
     # (heuristic_value, current_node, path)
     pq.put((heuristics[start], start, [start]))
     visited.add(start)
@@ -19,7 +20,9 @@ def best_first_Search(graph, start, target, heuristics):
         for neighbor in graph.get(node, []):
             if neighbor not in visited:
                 visited.add(neighbor)
-                pq.put((heuristics[neighbor], neighbor, path + [neighbor]))
+                pq.put(
+                    (heuristics[neighbor], neighbor, path + [neighbor])
+                )
 
     return None, None
 
@@ -34,6 +37,7 @@ if __name__ == "__main__":
         'E': [],
         'F': []
     }
+
     heuristics = {
         'A': 10,
         'B': 8,
@@ -42,6 +46,10 @@ if __name__ == "__main__":
         'E': 4,
         'F': 0
     }
-    print("output is:  ")
-    path, cost = best_first_Search(graph, 'A', 'F', heuristics)
-    print(f"Path found by Best-First Search: {path} with target heuristic: {cost}")
+
+    path, cost = best_first_search(graph, 'A', 'F', heuristics)
+
+    print(
+        f"Path found by Best-First Search: {path} "
+        f"with Target Heuristic: {cost}"
+    )

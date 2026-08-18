@@ -1,44 +1,46 @@
 print("GANESH V S  24BECS157 ")
-print("Best-First Search Algorithm Implementation")
-#implementation of BFS and DFS
-
-
+print("BFS and DFS Algorithms")
 
 from collections import deque
+
 
 def bfs(graph, start):
     visited = set()
     queue = deque([start])
     visited.add(start)
-    result = []
+    order = []
 
     while queue:
-        current = queue.popleft()
-        result.append(current)
+        vertex = queue.popleft()
+        order.append(vertex)
 
-        for neighbor in graph.get(current, []): 
+        for neighbor in graph[vertex]:
             if neighbor not in visited:
                 visited.add(neighbor)
                 queue.append(neighbor)
 
-    return result
+    return order
 
-def dfs(graph, start, visited=None):
+
+def dfs(graph, start, visited=None, order=None):
     if visited is None:
         visited = set()
+
+    if order is None:
+        order = []
+
     visited.add(start)
-    result = [start]
+    order.append(start)
 
-    for neighbor in graph.get(start, []):
+    for neighbor in graph[start]:
         if neighbor not in visited:
-            result.extend(dfs(graph, neighbor, visited))
+            dfs(graph, neighbor, visited, order)
 
-    return result
+    return order
 
-#Example usage
 
+# Example Usage
 if __name__ == "__main__":
-
     graph = {
         'A': ['B', 'C'],
         'B': ['A', 'D', 'E'],
@@ -48,5 +50,5 @@ if __name__ == "__main__":
         'F': ['C', 'E']
     }
 
-    print("BFS Traversal starting from vertex A:", bfs(graph, 'A'))
-    print("DFS Traversal starting from vertex A:", dfs(graph, 'A'))
+    print("BFS Traversal starting from 'A':", bfs(graph, 'A'))
+    print("DFS Traversal starting from 'A':", dfs(graph, 'A'))
